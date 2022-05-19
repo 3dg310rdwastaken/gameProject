@@ -4,16 +4,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class Interactor : MonoBehaviour
 {
     public LayerMask interactableLayerMask = 8;
     public Interactable interactable;
     private int collectables;
+    public AudioSource gemAudio;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class Interactor : MonoBehaviour
                 {
                     interactable.onInteract.Invoke();
                     collectables++;
+                    gemAudio.Play();
                 }
             }
         }
